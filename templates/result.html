@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spam Detection Result</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: 'Ubuntu', sans-serif;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #ff4081;
+      margin-bottom: 20px;
+    }
+    .container {
+      margin: 50px auto;
+      width: 60%;
+    }
+    .result-bubble {
+      position: relative;
+      background-color: #333;
+      color: white;
+      border-radius: 30px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    .result-bubble.round {
+      border-radius: 30px;
+      padding: 20px;
+      width: 80%;
+      margin: 0 auto;
+    }
+    .result-text {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #ff4081;
+    }
+    .pushable {
+      position: relative;
+      border: none;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      outline-offset: 4px;
+    }
+    .shadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: hsl(0deg 0% 0% / 0.25);
+      transform: translateY(2px);
+      transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+    }
+    .edge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: linear-gradient(
+        to left,
+        hsl(340deg 100% 16%) 0%,
+        hsl(340deg 100% 32%) 8%,
+        hsl(340deg 100% 32%) 92%,
+        hsl(340deg 100% 16%) 100%
+      );
+    }
+    .front {
+      display: block;
+      position: relative;
+      padding: 12px 42px;
+      border-radius: 12px;
+      font-size: 1.25rem;
+      color: white;
+      background: hsl(345deg 100% 47%);
+      transform: translateY(-4px);
+      transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+    }
+    .pushable:hover .front {
+      transform: translateY(-6px);
+    }
+    .pushable:active .front {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <h1>Spam SMS Detection Result</h1>
+  <div class="container">
+    <div class="result-bubble round">
+      <p class="result-text">The message is: <strong>{{ prediction }}</strong></p>
+    </div>
+    <button class="pushable" onclick="window.location.href='/'">
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front">Check Another</span>
+    </button>
+  </div>
+</body>
+</html>
